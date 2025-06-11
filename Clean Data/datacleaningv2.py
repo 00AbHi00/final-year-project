@@ -1,4 +1,12 @@
 import pandas as pd
+import numpy as np
+#----------------------------#
+#                            #
+#                            #
+#   Data cleaning stage 2    #
+#                            #
+#                            #
+#----------------------------#
 
 
 clean_data=pd.read_csv("data\\clean_data_v1.csv")
@@ -53,9 +61,17 @@ checkDate=pd.Timestamp('2021-1-1')
 print("Symbols Currently existing")
 
 recent_data=merged_data[merged_data["Recent Date"]>pd.Timestamp('2025-01-01')]
-print(recent_data[['Symbol','Recent Date']].sort_values(by='Recent Date',ascending=False))
 
-recent_data.to_csv("data/recent_data_v2.csv")
+print(recent_data.reset_index(drop=True))
+
+
+
+# max_close_indicesA = clean_data.groupby('Symbol')['High'].idxmax()
+# max_close_rowsA = clean_data.loc[max_close_indicesA]
+# max_close_rowsA = max_close_rowsA.reset_index(drop=True)
+# print(max_close_rowsA)
+
+# recent_data.to_csv("data/recent_data_v2.csv")
 
 # print("Symbols older than 2021")
 # print(merged_data[merged_data['Date']<checkDate])
