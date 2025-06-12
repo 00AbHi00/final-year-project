@@ -49,7 +49,7 @@ st.subheader(f"Historical Data for `{selected_symbol}`")
 st.dataframe(filtered_df, use_container_width=True)
 
 # === Candlestick Chart filtered by Symbol ===
-st.subheader("🕯️ Candlestick Chart")
+st.subheader("Candlestick Chart")
 fig = go.Figure(data=[go.Candlestick(
     x=filtered_df['Date'],
     open=filtered_df['Open'],
